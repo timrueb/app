@@ -33,7 +33,10 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/scss"]
+            }
           },
           "configurations": {
             "production": {
@@ -127,5 +130,8 @@
       }
     }
   },
-  "defaultProject": "cv"
+  "defaultProject": "cv",
+  "cli": {
+    "analytics": "e16d25cb-87f4-45c9-abd2-9a0513f6cedb"
+  }
 }

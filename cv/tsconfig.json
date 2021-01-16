@@ -19,7 +19,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths":{
+      "@shared/*": ["./app/shared/*"],
+      "@core/*": ["./app/core/*"],
+      "@home/*": ["./app/home/*"],
+      "@contact": ["./app/contact/*"],
+      "@projects": ["./app/projects/*"],
+      "@resume": ["./app/resume/*"]
+    }
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,

@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import '_variables';
+@import '_mixins';
+
+.primary-nav__items {
+    display: flex;
+}
+
+.primary-nav__item {
+    padding: 10px;
+    border: solid black 1px;
+    border-radius: 8px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    background: 0 0;
+    color: inherit;
+    -webkit-touch-callout: none;
+    -webkit-tab-highlight-color: transparent;
+
+    &:hover, &:active {
+        outline: 0;
+    }
+}

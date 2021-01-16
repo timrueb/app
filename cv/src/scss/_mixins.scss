@@ -1,0 +1,59 @@
+// Media queries
+@mixin MQ($comparator, $canvas) {
+    @if $comparator == max {  
+        @media only screen and (max-width: map-get($sizes, $canvas)) {
+            @content;
+        }
+    }
+
+    @else if $comparator == min {
+        @media only screen and (min-width: map-get($sizes, $canvas) + 1px) {
+            @content;
+        }
+    }
+}
+
+// Grid classes
+$gutter: 1em;
+$gutter-half: .5em;
+
+@mixin create-classes-for-size($canvas) {
+    @if $canvas == xs {
+        @for $j from 1 through 12 {
+            $perc: unquote("#{100% * $j / 12} - #{$gutter-half * 2}");
+            @include grid-class($canvas, $j, $perc);
+        }  
+    } @else {
+        @include MQ(min, $canvas) {
+            @for $j from 1 through 12 {
+                $perc: unquote("#{100% * $j / 12} - #{$gutter-half * 2}");
+                @include grid-class($canvas, $j, $perc);
+            }        
+        }
+    }
+}
+@mixin grid-class($canvas, $i, $perc) {
+    .#{$canvas}-col-#{$i} {
+        min-height: 1px;
+        margin: 0 $gutter-half $gutter;
+        max-width: calc(#{$perc});
+        @include calc-grid(width, #{$perc}, $margin: true);
+    }
+}
+@mixin calc-grid($property, $value, $margin: false) {
+    @if $margin {
+        #{$property}: -moz-calc(#{$value} - 0.01%);
+        #{$property}: -webkit-calc(#{$value} - 0.01%);
+        #{$property}: -o-calc(#{$value} - 0.01%);
+        #{$property}: calc(#{$value} - 0.01%);
+    } @else {
+        #{$property}: -moz-calc(#{$value});
+        #{$property}: -webkit-calc(#{$value});
+        #{$property}: -o-calc(#{$value});
+        #{$property}: calc(#{$value});
+    }
+}
+// Generate classes
+@each $canvas, $size in $sizes {
+    @include create-classes-for-size($canvas);
+}

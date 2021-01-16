@@ -1,0 +1,31 @@
+// Fonts
+$font-family--light: 'ProximaNovaA-Regular' !default;
+$font-family--medium:  'ProximaNovaA-Semibold' !default;
+$font-family--bold: 'ProximaNovaA-Bold' !default;
+
+// Colour variables
+$colour--primary: rgb(52, 90, 88);
+$colour--secondary: rgb(67, 138, 134);
+$colour--grey: #F4F4F4;
+
+// Screen sizes
+$XS: 480px;
+$S: 640px;
+$M: 880px;
+$L: 1080px;
+$XL: 1440px;
+
+$sizes: (
+    xs: $XS,
+    s: $S,
+    m: $M,
+    l: $L,
+    xl: $XL
+);
+
+// Box Shadow
+$box-shadow--default: 0 2px 4px rgba(0,0,0,0.2) !default;
+$box-shadow--highlighted: 0 2px 4px rgba(0,0,0,0.5) !default;
+
+
+
